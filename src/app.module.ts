@@ -8,6 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { ExpensesModule } from './expenses/expenses.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { ExpensesModule } from './expenses/expenses.module';
         synchronize: true, 
       }),
     }),
-    UsersModule, AuthModule, JwtModule, ExpensesModule],
+    UsersModule, AuthModule, JwtModule, ExpensesModule, CategoriesModule],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
 })
