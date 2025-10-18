@@ -30,8 +30,12 @@ export class AuthService {
     if (existingUser) {
       throw new UnauthorizedException('User already exists');
     }
-
-    const user = await this.usersService.createUser(email, password, name);
-    return this.login(user);
+    try {
+      const user = await this.usersService.createUser(email, password, name);
+      return this.login(user);
+    } catch (err) {
+      console.error(err); // this will show exact failure
+      throw err;
+    }  
   }
 }
