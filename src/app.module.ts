@@ -25,10 +25,19 @@ import { BudgetModule } from './budget/budget.module';
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true, 
+        extra: {
+          ssl: { rejectUnauthorized: false }, // important for Supabase
+        },
+        synchronize: true,
       }),
     }),
-    UsersModule, AuthModule, JwtModule, ExpensesModule, CategoriesModule, BudgetModule],
+    UsersModule,
+    AuthModule,
+    JwtModule,
+    ExpensesModule,
+    CategoriesModule,
+    BudgetModule,
+  ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
 })
