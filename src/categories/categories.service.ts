@@ -11,12 +11,12 @@ export class CategoriesService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    console.log('Module initialized — seeding categories now!');
     await this.seedDefaultCategories();
   }
 
   private async seedDefaultCategories() {
     const defaultCategories = [
+      { name: 'All Categories', color: '#EF4444', icon: '📦' },
       { name: 'Food & Dining', color: '#EF4444', icon: '🍽️' },
       { name: 'Transportation', color: '#3B82F6', icon: '🚗' },
       { name: 'Shopping', color: '#8B5CF6', icon: '🛍️' },
@@ -39,10 +39,7 @@ export class CategoriesService implements OnModuleInit {
           userId: null,
         });
         await this.categoriesRepository.save(category);
-        console.log(`✅ Category added: ${categoryData.name}`);
-      }
-
-      
+      }      
     }
   }
 

@@ -22,12 +22,6 @@ export class AuthService {
     const payload = { sub: user.id, email: user.email };
     const secretKey = process.env.JWT_SECRET;
 
-    if (!secretKey) {
-      console.log('JWT_SECRET environmental variable is not defined');
-    } else {
-      console.log(secretKey);
-    }
-
     return { access_token: this.jwtService.sign(payload) , user: user};
   }
 
