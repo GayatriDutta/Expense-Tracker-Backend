@@ -9,13 +9,13 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     super();
   }
 
-  canActivate(context: ExecutionContext) {
+    canActivate(context: ExecutionContext) {
     const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
       context.getHandler(),
       context.getClass(),
     ]);
     if (isPublic) {
-      console.log('Public route accessed, skipping JWT guard'); // <-- log for public routes
+      console.log('✅ Public route accessed – skipping JWT auth');
       return true;
     }
     return super.canActivate(context);
