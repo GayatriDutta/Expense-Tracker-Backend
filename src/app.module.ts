@@ -26,9 +26,9 @@ import { BudgetModule } from './budget/budget.module';
         database: config.get('DB_NAME'),
         autoLoadEntities: true,
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        extra: {
-          ssl: { rejectUnauthorized: false }, 
-        }
+        ssl: {
+          rejectUnauthorized: false, // ✅ Required on Render
+        },
       }),
     }),
     UsersModule,
