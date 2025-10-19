@@ -7,6 +7,7 @@ async function bootstrap() {
    app.enableCors({
     origin: 'https://expense-tracker-blush-nu-94.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
   });
 
   const port = process.env.PORT || 5000;
